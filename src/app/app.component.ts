@@ -10,7 +10,7 @@ import { JokesService } from './Services/jokes.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  joke: string = 'dad';
+  joke: string = 'We\'re the joke at this point hehe';
   title = 'dad-jokes';
   private jokeService = inject(JokesService);
   constructor () {}
