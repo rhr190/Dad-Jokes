@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { JokesService } from './Services/jokes.service';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,13 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  joke: string = 'dad';
   title = 'dad-jokes';
+  private jokeService = inject(JokesService);
+  constructor () {}
+  fetchJoke(): void {
+    this.jokeService.getJoke().subscribe( (data: any) => {
+      this.joke = data.joke;
+    })
+  }
 }
